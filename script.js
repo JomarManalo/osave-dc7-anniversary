@@ -37,6 +37,8 @@
     if (value) img.src = value;
   });
   document.title = `${S.brand} ${S.site} · ${yearsLabel}`;
+  $("#rsvp").hidden = S.showRsvp === false;
+  $("#wishes").hidden = S.showMessages === false;
   if (S.years) {
     $("#heroYears").textContent = `${ordinal(S.years)} Year`;
     $("#heroYears").hidden = false;

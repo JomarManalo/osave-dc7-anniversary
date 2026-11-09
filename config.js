@@ -76,6 +76,10 @@ window.SITE = {
   // e.g. "audio/song.mp3". Leave empty to hide the music button.
   music: "",
 
+  // ---- Show / hide sections ---------------------------------
+  showRsvp: false,      // RSVP form
+  showMessages: false,  // "Messages for DC 7" wall
+
   // ---- RSVP storage (optional) ------------------------------
   // Paste your Google Apps Script web-app URL here (see README.md).
   // While empty, RSVPs and messages are only saved in the visitor's own browser.
