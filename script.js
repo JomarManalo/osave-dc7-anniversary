@@ -19,6 +19,24 @@
   };
   const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- Scroll lock until the logo is tapped ---------- */
+  const root = document.documentElement;
+  const toTop = () => window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual"; // don't restore old position on reload
+  if (location.hash) history.replaceState(null, "", location.pathname + location.search); // ignore #section links
+  toTop();
+  window.addEventListener("load", toTop);
+
+  const isLocked = () => root.classList.contains("is-locked");
+  const blockScroll = (e) => { if (isLocked()) e.preventDefault(); };
+  const scrollKeys = new Set([" ", "Spacebar", "PageUp", "PageDown", "End", "Home", "ArrowUp", "ArrowDown"]);
+  window.addEventListener("wheel", blockScroll, { passive: false });
+  window.addEventListener("touchmove", blockScroll, { passive: false });
+  window.addEventListener("keydown", (e) => {
+    if (isLocked() && scrollKeys.has(e.key) && e.target === document.body) e.preventDefault();
+  });
+  window.addEventListener("scroll", () => { if (isLocked() && window.scrollY !== 0) toTop(); });
+
   const start = new Date(S.eventStart);
   const end = new Date(S.eventEnd || S.eventStart);
   const ordinal = (n) => {
@@ -75,8 +93,10 @@
   const musicBtn = $("#musicBtn");
 
   function openInvite() {
+    toTop(); // always start from the top of the page
     opening.classList.add("is-open");
-    document.body.classList.remove("is-locked");
+    root.classList.remove("is-locked");
+    toTop();
     addConfetti(60, true);
     playMusic();
     setTimeout(() => {

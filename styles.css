@@ -28,7 +28,9 @@ body {
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
 }
-body.is-locked { overflow: hidden; }
+/* Locked until the logo is tapped: no scrolling on desktop or mobile */
+html.is-locked, html.is-locked body { overflow: hidden; height: 100%; overscroll-behavior: none; }
+html.is-locked body { touch-action: none; }
 img { max-width: 100%; display: block; }
 h1, h2, h3 { margin: 0; }
 a { color: inherit; }
