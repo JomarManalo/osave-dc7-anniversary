@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>O!Save DC 7 San Leonardo · 1st Anniversary</title>
+  <meta name="description" content="O!Save DC 7 San Leonardo 1st Anniversary — Stronger Together, Growing Bigger! November 27, 2026.">
+  <meta property="og:title" content="O!Save DC 7 San Leonardo · 1st Anniversary">
+  <meta property="og:description" content="Stronger Together, Growing Bigger! Join us on November 27, 2026.">
+  <meta property="og:image" content="images/poster.jpg">
+  <meta name="theme-color" content="#e30613">
+  <link rel="icon" href="images/logo.jpg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+
+  <!-- ===== Opening screen ===== -->
+  <div class="opening" id="opening" role="dialog" aria-label="Open invitation">
+    <div class="opening__panel opening__panel--left"></div>
+    <div class="opening__panel opening__panel--right"></div>
+    <button class="opening__badge" id="openBtn" type="button" aria-label="Open the invitation">
+      <img class="opening__logo" data-src="logo" alt="O!Save logo">
+    </button>
+    <p class="opening__hint">
+      <span class="opening__site" data-text="site"></span>
+      <span class="opening__title">You're invited!</span>
+      <span class="opening__tap">Tap the logo to open</span>
+    </p>
+  </div>
+
+  <!-- ===== Music toggle ===== -->
+  <button class="music-btn" id="musicBtn" type="button" aria-label="Play music" hidden>
+    <span class="music-btn__bars"><i></i><i></i><i></i></span>
+  </button>
+  <audio id="bgMusic" loop preload="none"></audio>
+
+  <!-- ===== Hero ===== -->
+  <header class="hero" id="top">
+    <div class="hero__rays" aria-hidden="true"></div>
+    <div class="balloons balloons--left" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="balloons balloons--right" aria-hidden="true"><i></i><i></i><i></i></div>
+    <div class="confetti" id="confetti" aria-hidden="true"></div>
+
+    <div class="hero__inner">
+      <img class="hero__logo" data-src="logo" alt="O!Save">
+      <p class="hero__site" data-text="site"></p>
+      <p class="hero__years" id="heroYears" hidden></p>
+      <h1 class="hero__title" data-text="title"></h1>
+      <p class="hero__theme" data-text="theme"></p>
+      <div class="ribbon">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm-2 8h14v10H5V10zm2 2v2h2v-2H7zm4 0v2h2v-2h-2zm4 0v2h2v-2h-2zm-8 4v2h2v-2H7zm4 0v2h2v-2h-2z"/></svg>
+        <span id="heroDate"></span>
+      </div>
+    </div>
+
+    <svg class="hero__wave" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 70 C 240 10, 480 120, 720 70 S 1200 10, 1440 60 V120 H0 Z" fill="#ffc60b"/>
+      <path d="M0 90 C 260 40, 520 130, 760 88 S 1220 40, 1440 84 V120 H0 Z" fill="#e30613"/>
+    </svg>
+  </header>
+
+  <main>
+    <!-- ===== Countdown ===== -->
+    <section class="section section--red" id="countdown">
+      <div class="container reveal">
+        <p class="eyebrow">Counting down</p>
+        <h2 class="section__title">The big day is coming!</h2>
+        <div class="countdown" id="countdownGrid">
+          <div class="countdown__cell"><span id="cdDays">00</span><small>Days</small></div>
+          <div class="countdown__cell"><span id="cdHours">00</span><small>Hours</small></div>
+          <div class="countdown__cell"><span id="cdMins">00</span><small>Minutes</small></div>
+          <div class="countdown__cell"><span id="cdSecs">00</span><small>Seconds</small></div>
+        </div>
+        <p class="countdown__done" id="countdownDone" hidden>Happy 1st Anniversary, DC 7!</p>
+        <p class="lead" data-text="intro"></p>
+      </div>
+    </section>
+
+    <!-- ===== Our journey ===== -->
+    <section class="section" id="story">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Looking back</p>
+          <h2 class="section__title">Our Journey</h2>
+        </div>
+        <ol class="timeline" id="timeline"></ol>
+      </div>
+    </section>
+
+    <!-- ===== Program ===== -->
+    <section class="section section--yellow" id="program">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">The celebration</p>
+          <h2 class="section__title">Program</h2>
+        </div>
+        <ul class="program" id="programList"></ul>
+      </div>
+    </section>
+
+    <!-- ===== Venue ===== -->
+    <section class="section section--red" id="venue">
+      <div class="container venue">
+        <div class="venue__info reveal">
+          <p class="eyebrow">Where</p>
+          <h2 class="section__title" id="venueName"></h2>
+          <p class="venue__address" id="venueAddress"></p>
+          <p class="venue__when" id="venueWhen"></p>
+          <div class="btn-row">
+            <a class="btn btn--yellow" id="directionsBtn" target="_blank" rel="noopener">Get directions</a>
+            <button class="btn btn--ghost" id="calendarBtn" type="button">Add to calendar</button>
+          </div>
+        </div>
+        <div class="venue__map reveal">
+          <iframe id="mapFrame" title="Venue map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Dress code ===== -->
+    <section class="section" id="dresscode">
+      <div class="container narrow reveal">
+        <p class="eyebrow">What to wear</p>
+        <h2 class="section__title" id="dressTitle"></h2>
+        <p class="lead" id="dressText"></p>
+        <div class="swatches" id="swatches"></div>
+      </div>
+    </section>
+
+    <!-- ===== Gallery ===== -->
+    <section class="section section--yellow" id="gallery">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Moments</p>
+          <h2 class="section__title">Then &amp; Now</h2>
+        </div>
+        <div class="gallery" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ===== RSVP ===== -->
+    <section class="section section--red" id="rsvp">
+      <div class="container narrow reveal">
+        <p class="eyebrow">Will you be there?</p>
+        <h2 class="section__title">RSVP</h2>
+        <p class="lead">Please confirm by <strong id="rsvpDeadline"></strong>.</p>
+
+        <form class="form" id="rsvpForm" novalidate>
+          <label class="field">
+            <span>Full name</span>
+            <input name="name" type="text" autocomplete="name" required>
+          </label>
+
+          <label class="field">
+            <span>Department</span>
+            <select name="department" id="departmentSelect" required>
+              <option value="">Select your department</option>
+            </select>
+          </label>
+
+          <fieldset class="field field--choice">
+            <legend>Will you attend?</legend>
+            <label class="choice"><input type="radio" name="attending" value="Yes" required><span>Yes, I'll be there!</span></label>
+            <label class="choice"><input type="radio" name="attending" value="No"><span>Sorry, I can't</span></label>
+          </fieldset>
+
+          <label class="field">
+            <span>Message or notes (optional)</span>
+            <textarea name="message" rows="3" placeholder="Dietary needs, shift conflicts, etc."></textarea>
+          </label>
+
+          <p class="form__error" id="rsvpError" role="alert" hidden></p>
+          <button class="btn btn--yellow btn--block" type="submit">Send RSVP</button>
+        </form>
+
+        <div class="form__thanks" id="rsvpThanks" hidden>
+          <h3>Salamat!</h3>
+          <p id="rsvpThanksText"></p>
+          <button class="btn btn--ghost" id="rsvpAgain" type="button">Edit my reply</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Messages ===== -->
+    <section class="section" id="wishes">
+      <div class="container">
+        <div class="reveal">
+          <p class="eyebrow">Leave a message</p>
+          <h2 class="section__title">Messages for DC 7</h2>
+        </div>
+        <form class="wish-form reveal" id="wishForm">
+          <input name="name" type="text" placeholder="Your name" required maxlength="60">
+          <textarea name="text" rows="2" placeholder="Write your anniversary message…" required maxlength="400"></textarea>
+          <button class="btn btn--red" type="submit">Post</button>
+        </form>
+        <div class="wishes" id="wishList"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <img class="footer__logo" data-src="logo" alt="O!Save">
+    <p class="footer__site" data-text="site"></p>
+    <p class="footer__theme" data-text="theme"></p>
+    <p data-text="contact"></p>
+  </footer>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" hidden>
+    <button class="lightbox__close" id="lightboxClose" type="button" aria-label="Close">×</button>
+    <img id="lightboxImg" alt="">
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
