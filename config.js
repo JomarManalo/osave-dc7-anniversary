@@ -23,8 +23,8 @@ window.SITE = {
     "and the people who keep O!Save stores stocked and our communities saving.",
 
   // Event start/end (ISO format, +08:00 = Philippine time)
-  eventStart: "2026-11-27T08:00:00+08:00", // TODO confirm start time
-  eventEnd: "2026-11-27T17:00:00+08:00",   // TODO confirm end time
+  eventStart: "2026-11-27T09:30:00+08:00", // first activity (Cook Off)
+  eventEnd: "2026-11-27T16:30:00+08:00",   // last activity ends (Amazing Race)
   rsvpDeadline: "November 20, 2026",       // TODO
 
   // ---- Our journey timeline ---------------------------------
@@ -37,14 +37,13 @@ window.SITE = {
   ],
 
   // ---- Program ----------------------------------------------
-  // TODO replace with the real schedule
+  // Listed in order of start time. "text" is optional.
   program: [
-    { time: "8:00 AM", title: "Registration", text: "Sign in, claim your anniversary kit and take photos at the booth." },
-    { time: "9:00 AM", title: "Opening Program", text: "Prayer, national anthem and welcome remarks." },
-    { time: "10:00 AM", title: "Look Back & Recognition", text: "A short video of our journey and service awards for our teammates." },
-    { time: "12:00 PM", title: "Lunch", text: "Boodle fight together." },
-    { time: "1:30 PM", title: "Team Games", text: "Department vs department — bring your A-game." },
-    { time: "3:30 PM", title: "Raffle & Closing", text: "Prizes, group photo and closing remarks." }
+    { time: "9:30 – 11:30 AM", title: "Cook Off", text: "" },
+    { time: "10:30 – 11:30 AM", title: "Mass", text: "" },
+    { time: "2:00 PM", title: "CSR", text: "Optional", optional: true },
+    { time: "2:00 – 4:00 PM", title: "E-Games", text: "" },
+    { time: "3:00 – 4:30 PM", title: "Amazing Race", text: "" }
   ],
 
   // ---- Venue ------------------------------------------------

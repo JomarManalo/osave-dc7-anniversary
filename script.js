@@ -170,9 +170,12 @@
   /* ---------- Program ---------- */
   const programList = $("#programList");
   (S.program || []).forEach((item) => {
-    const li = el("li", "program__item");
+    const li = el("li", "program__item" + (item.optional ? " program__item--optional" : ""));
     const body = el("div");
-    body.append(el("h3", null, item.title), el("p", null, item.text));
+    const title = el("h3", null, item.title);
+    if (item.optional) title.append(" ", el("span", "tag", "Optional"));
+    body.appendChild(title);
+    if (item.text && !item.optional) body.appendChild(el("p", null, item.text));
     li.append(el("div", "program__time", item.time), body);
     programList.appendChild(li);
   });
